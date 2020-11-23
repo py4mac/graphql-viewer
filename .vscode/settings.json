@@ -1,0 +1,22 @@
+{
+    "python.linting.pylintEnabled": false,
+      "python.linting.flake8Enabled": true,
+      "python.linting.enabled": true,
+      "python.linting.mypyEnabled": true,
+      "python.testing.unittestArgs": ["-v", "-s", "./tests", "-p", "test_*.py"],
+      "python.testing.pytestEnabled": true,
+      "python.testing.nosetestsEnabled": false,
+      "python.testing.unittestEnabled": true,
+      "python.formatting.provider": "autopep8",
+      "python.formatting.blackArgs": ["--line-length=120"],
+      "editor.formatOnSave": true,
+      "remote.WSL.fileWatcher.polling": true,
+      "files.watcherExclude": {
+        "**/.git/**": true
+      },
+      "workbench.editor.enablePreview": false,
+      "python.envFile": "${workspaceFolder}/.env",
+      "git.ignoreLimitWarning": true,
+      "python.pythonPath": ".venv/bin/python3.8"
+    }
+  
