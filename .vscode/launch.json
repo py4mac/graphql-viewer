@@ -24,7 +24,7 @@
       },
       "args": ["init-db"]
     },{
-      "name": "cli_drop_db",
+      "name": "run",
       "type": "python",
       "request": "launch",
       "program": "${workspaceFolder}/graphv/cli.py",
@@ -32,7 +32,7 @@
       "env": {
         "PYTHONPATH": "${workspaceFolder}"
       },
-      "args": ["drop-db", "True"]
+      "args": ["run"]
     }
     ]
   }
