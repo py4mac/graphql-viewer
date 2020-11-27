@@ -1,4 +1,5 @@
 import uuid
+from typing import Optional
 import pydantic
 import graphene
 import uvicorn
@@ -7,10 +8,23 @@ from fastapi import FastAPI
 from starlette.graphql import GraphQLApp
 
 
+class CarModel(pydantic.BaseModel):
+    id: uuid.UUID
+    name: str
+
+
 class PersonModel(pydantic.BaseModel):
     id: uuid.UUID
     first_name: str
     last_name: str
+    car: Optional[CarModel]
+
+
+class Car(PydanticObjectType):
+    class Meta:
+        model = CarModel
+        # exclude specified fields
+        exclude_fields = ("id",)
 
 
 class Person(PydanticObjectType):
@@ -26,7 +40,7 @@ class Query(graphene.ObjectType):
     @staticmethod
     def resolve_people(parent, info):
         # fetch actual PersonModels here
-        return [PersonModel(id=uuid.uuid4(), first_name="Beth", last_name="Smith")]
+        return [PersonModel(id=uuid.uuid4(), first_name="Beth", last_name="Smith", car=CarModel(id=uuid.uuid4(), name="BMW"))]
 
 
 schema = graphene.Schema(query=Query)

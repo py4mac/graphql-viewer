@@ -17,12 +17,15 @@
       "name": "frontend",
       "type": "python",
       "request": "launch",
-      "program": "${workspaceFolder}/examples/frontend.py",
+      "module": "streamlit.cli",
+      "args": [
+          "run",
+          "${workspaceFolder}/examples/frontend.py",
+      ],
       "console": "integratedTerminal",
       "env": {
         "PYTHONPATH": "${workspaceFolder}"
-      },
-      "args": ["init-db"]
+      }
     },{
       "name": "run",
       "type": "python",
